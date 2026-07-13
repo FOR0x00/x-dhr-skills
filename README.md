@@ -1,4 +1,4 @@
-# x-dhr 薪事力 AI Agent Skills
+# 薪事力 AI Agent Skills
 
 为 AI Agent 提供薪事力能力的 Skill 集合，目前支持智能人事查询、发起流程等功能。
 
