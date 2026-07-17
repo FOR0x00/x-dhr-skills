@@ -27,10 +27,10 @@ version: 1.0.0
 
 ## 支持的能力
 
-| 能力                 | 用户示例             | 详细说明                                      |
-|--------------------|------------------|-------------------------------------------|
-| 检索处理员工、花名册等智能人事事项时 | 帮我查下张三的人事信息      | [org-person.md](references/org-person.md) |
-| 发起审批流程、填写表单        | 帮我发起请假单、出差、加班、报销 | [workflow.md](references/workflow.md)     |
+| 能力                         | 用户示例                         | 详细说明                                  |
+|------------------------------|----------------------------------|-------------------------------------------|
+| 检索员工、花名册等人事信息时 | 帮我查下张三的人事信息           | [org-person.md](references/org-person.md) |
+| 发起审批流程、填写表单       | 帮我发起请假单、出差、加班、报销 | [workflow.md](references/workflow.md)     |
 
 ## 通用规则
 
@@ -67,22 +67,22 @@ version: 1.0.0
 
 **字段类型清单**
 
-| fieldType                                                        | 字段类型           | 处理规则                                                                                                                 |
-|------------------------------------------------------------------|----------------|----------------------------------------------------------------------------------------------------------------------|
-| `textfield`, `textarea`                                          | 字符串            | 保留用户原意；执行长度、正则等校验                                                                                                    |
-| `cellphone`                                                      | 手机号字符串         | 转换为手机号                                                                                                               |
-| `number`, `numberonline`, `score`                                | 数字             | 去除合法千分位；检查精度、最小值和最大值。不要把模糊数量词转数字。                                                                                    |
-| `checkbox`                                                       | 开关             | 布尔值；把是否，开关等语义转化为 true/false                                                                                          |
-| `datepicker`                                                     | 日期             | 结合当前日期和时区解析相对表达；`showType=0`转换为yyyy-MM-dd，`showType=1`转换为yyyy-MM-dd HH:mm，`showType=4`转换为yyyy-MM；日期或精度有歧义时使用 UserAsk |
-| `timepicker`                                                     | 时间             | 结合当前日期和时区解析相对表达；转换为HH:mm格式，有歧义时使用 UserAsk                                                                            |
-| `radio`, `singleselect`                                          | 单个枚举项          | 单个值；这个值必须来自 `options`                                                                                                |
-| `multiselect`                                                    | 枚举数组           | 可多个值；每项都必须来自 `options`；多项时英文 `,` 分割                                                                                  |
-| `selectperson`, `multiselectperson`                              | 人员或多个人员        | 提交人员名称；多项时英文`,`分割                                                                                                    |
-| `selectdept`, `multiselectdept`                                  | 部门或多个部门        | 提交部门名称；多项时英文`,`分割                                                                                                    |
-| `selectjob`, `selectjoblevel`, `selectcompany`, `selectmultiorg` | 职位、职位等级、公司、多组织 | 提交显示名称；多项时英文 `,` 分割                                                                                                  |
-| `address`, `city`, `lbs`                                         | 地理位置           | 提示用户不支持该控件、字段                                                                                                        |
-| `attachment`, `image`, `imagesingle`, `imagemulti`, `signature`  | 文件或手写签名控件      | 提示用户不支持该控件、字段                                                                                                        |
-| `outercontrol`                                                   | 加载外部数据控件       | 提示用户不支持该控件、字段                                                                                                        |
+| fieldType                                                        | 字段类型                     | 处理规则                                                                                                                                                    |
+|------------------------------------------------------------------|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `textfield`, `textarea`                                          | 字符串                       | 保留用户原意；执行长度、正则等校验                                                                                                                          |
+| `cellphone`                                                      | 手机号字符串                 | 转换为手机号                                                                                                                                                |
+| `number`, `numberonline`, `score`                                | 数字                         | 去除合法千分位；检查精度、最小值和最大值。不要把模糊数量词转数字。                                                                                          |
+| `checkbox`                                                       | 开关                         | 布尔值；把是否，开关等语义转化为 true/false                                                                                                                 |
+| `datepicker`                                                     | 日期                         | 结合当前日期和时区解析相对表达；`showType=0`转换为yyyy-MM-dd，`showType=1`转换为yyyy-MM-dd HH:mm，`showType=4`转换为yyyy-MM；日期或精度有歧义时使用 UserAsk |
+| `timepicker`                                                     | 时间                         | 结合当前日期和时区解析相对表达；转换为HH:mm格式，有歧义时使用 UserAsk                                                                                       |
+| `radio`, `singleselect`                                          | 单个枚举项                   | 单个值；这个值必须来自 `options`                                                                                                                            |
+| `multiselect`                                                    | 枚举数组                     | 可多个值；每项都必须来自 `options`；多项时英文 `,` 分割                                                                                                     |
+| `selectperson`, `multiselectperson`                              | 人员或多个人员               | 提交人员名称；多项时英文`,`分割                                                                                                                             |
+| `selectdept`, `multiselectdept`                                  | 部门或多个部门               | 提交部门名称；多项时英文`,`分割                                                                                                                             |
+| `selectjob`, `selectjoblevel`, `selectcompany`, `selectmultiorg` | 职位、职位等级、公司、多组织 | 提交显示名称；多项时英文 `,` 分割                                                                                                                           |
+| `address`, `city`, `lbs`                                         | 地理位置                     | 提示用户不支持该控件、字段                                                                                                                                  |
+| `attachment`, `image`, `imagesingle`, `imagemulti`, `signature`  | 文件或手写签名控件           | 提示用户不支持该控件、字段                                                                                                                                  |
+| `outercontrol`                                                   | 加载外部数据控件             | 提示用户不支持该控件、字段                                                                                                                                  |
 
 未知 `fieldType` 不要降级为普通文本。使用 UserAsk 获取用户输入后仍保留原类型
 
@@ -169,7 +169,7 @@ fi
 ```bash
 curl -s "${X_DHR_MCP_URL}" \
   -H "Authorization: Bearer ${X_DHR_MCP_TOKEN}" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: application/json; charset=utf-8" \
   -H "Accept: application/json, text/event-stream" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
 ```
@@ -179,7 +179,7 @@ curl -s "${X_DHR_MCP_URL}" \
 ```bash
 curl -s "${X_DHR_MCP_URL}" \
   -H "Authorization: Bearer ${X_DHR_MCP_TOKEN}" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: application/json; charset=utf-8" \
   -H "Accept: application/json, text/event-stream" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"TOOL_NAME","arguments":{}}}'
 ```
