@@ -108,11 +108,16 @@ version: 1.0.0
 - fieldId: 字段ID
 - fieldValue: 字段值
 
-### 查询条件 Schema
+### McpCondition 查询条件 Schema
 
 - field: 字段ID
 - expression: 查询表达式，从 `McpField` 的 `queryExpression` 中取值
 - value: 查询值
+
+**规则：**
+
+- 当用户输入的查询条件为并且时 `expression` 值为 `and`，`value` 为 list[McpCondition]
+- 当用户输入的查询条件为或者时 `expression` 值为 `or`，`value` 为 list[McpCondition]
 
 ### 字段值匹配规则
 
@@ -160,7 +165,8 @@ version: 1.0.0
 
 - 当通过 `curl` 调用 MCP HTTP 接口时，优先使用环境变量。只有用户明确要求长期保存配置时，才可以写入 `~/.x-dhr/config.json`
   ，并必须设置为仅当前用户可读写权限，例如 `chmod 600 ~/.x-dhr/config.json`。
-- 首次调用某工具前，或不确定参数时，先查看工具的定义信息；同一会话已查看过工具定义后不要重复调用 `tools/list`。已知工具名和参数稳定时，直接调用目标工具。
+- 首次调用某工具前，或不确定参数时，先查看工具的定义信息；同一会话已查看过工具定义后不要重复调用 `tools/list`
+  。已知工具名和参数稳定时，直接调用目标工具。
 - 工具调用过程仅内部执行，不展示任何工具调用痕迹：禁止向用户展示 `X_DHR_MCP_TOKEN` 、工具名、调用标题、命令、参数、原始返回；只给用户可理解的结果
 - 向用户展示摘要时，只展示字段标题和显示值；不要展示字段ID、查询表达式、工具参数或原始 JSON。
 
