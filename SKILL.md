@@ -34,18 +34,24 @@ version: 1.0.0
 
 ## 通用规则
 
-### 表单及表单数据Schema
+### 通用对象 Schema
 
-`X-DHR` 的大多数业务都可以自定义字段，可自定义多个明细表，开展业务前都需要获取该业务的表单定义，封装成了以下对象结构如下：
+`X-DHR` 的大多数业务都可以自定义字段，可自定义多个明细表，开展业务前通常都需要获取该业务的表单定义，封装成了以下对象结构如下：
 
-**McpForm Schema**
+**R Mcp工具调用结果Schema**
+
+- code：状态码，0代表成功；非0表示异常，`message` 为异常信息
+- message：异常信息
+- data: 工具调用结果数据，可能为对象，可能为 `list`
+
+**McpForm 表单 Schema**
 
 - formId: 主表单/明细表单ID
 - formName: 表单显示名称
 - fields[McpField]: 字段列表
 - detailForms[McpForm]: 明细表单列表，可选
 
-**McpField Schema**
+**McpField 字段 Schema**
 
 - fieldId: 字段ID
 - fieldName: 字段显示名称
@@ -89,13 +95,13 @@ version: 1.0.0
   UserAsk 询问具体时间。
 - 若有字段类型不支持，但又是必填的情况，则告知用户该业务不支持通过 `Agent` 完成，请登录系统手动操作
 
-**McpData Schema**
+**McpData 表单提交数据 Schema**
 
 - formId: 表单ID
 - fieldDataList[McpFieldData]: 字段数据列表
 - detailDataList[McpData]: 明细表单数据列表
 
-**McpFieldData Schema**
+**McpFieldData 表单提交字段数据 Schema**
 
 - fieldId: 字段ID
 - fieldValue: 字段值
